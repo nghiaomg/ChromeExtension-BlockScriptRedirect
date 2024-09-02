@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Script Redirect Block",
+  "version": "1.0",
+  "description": "Chặn các script chuyển hướng tự động mở tab mới",
+  "icons": {
+    "16": "icons/icon16.jpg",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.jpg"
+  },
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "tabs",
+    "storage",
+    "http://*/",
+    "https://*/"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+        "16": "icons/icon16.jpg",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.jpg"
+      }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
